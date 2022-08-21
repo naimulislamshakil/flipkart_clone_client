@@ -5,6 +5,7 @@ import {
   useAppDispatch,
   useAppSelector,
 } from "../Redux/TypeHook/HeaderTypeHook";
+import HeaderCard from "./HeaderCard";
 
 const SubHeader: FC = () => {
   const dispatch = useAppDispatch();
@@ -25,9 +26,8 @@ const SubHeader: FC = () => {
   }
   return (
     <div>
-      <h2>jhufkjdfhi</h2>
       {headers.map((header) => (
-        <li key={header._id}>{header.text}</li>
+        <HeaderCard key={header._id} header={header}></HeaderCard>
       ))}
     </div>
   );
