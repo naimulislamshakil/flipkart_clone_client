@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
+import BannerSlice from "./Slice/BannerSlice";
 import headerSlice from "./Slice/HeaderSlice";
 
 const store = configureStore({
   reducer: {
     headers: headerSlice,
+    banners: BannerSlice,
   },
 });
 
