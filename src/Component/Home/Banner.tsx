@@ -47,10 +47,15 @@ const Banner = () => {
     toast.error(error);
   }
   return (
-    <div className="m-2">
+    <div className="">
       <Carousel responsive={responsive}>
         {banners.map((banner) => (
-          <img key={banner._id} src={banner.url} alt="Banner"></img>
+          <img
+            className="h-[250px]"
+            key={banner._id}
+            src={banner.url}
+            alt="Banner"
+          ></img>
         ))}
       </Carousel>
       ;
