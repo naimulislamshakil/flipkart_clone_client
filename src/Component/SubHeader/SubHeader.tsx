@@ -12,14 +12,16 @@ const SubHeader: FC = () => {
     (state) => state.headers
   );
 
-  console.log(headers);
-
   useEffect(() => {
     dispatch(getHeader());
   }, [dispatch]);
 
   if (isLoading) {
     return <Loading />;
+  }
+
+  if (error) {
+    console.log(error);
   }
   return (
     <div>
