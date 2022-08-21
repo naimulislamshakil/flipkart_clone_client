@@ -8,8 +8,8 @@ interface Props {
 const HeaderCard = ({ header }: Props) => {
   const { url, text } = header;
   return (
-    <div>
-      <img src={url} alt="" />
+    <div className="px-3">
+      <img className="w-2/4" src={url} alt="" />
       <p>{text}</p>
     </div>
   );

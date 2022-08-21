@@ -25,7 +25,7 @@ const SubHeader: FC = () => {
     console.log(error);
   }
   return (
-    <div>
+    <div className="flex justify-between shadow-md">
       {headers.map((header) => (
         <HeaderCard key={header._id} header={header}></HeaderCard>
       ))}
