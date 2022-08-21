@@ -1,4 +1,5 @@
 import { FC, useEffect } from "react";
+import { toast } from "react-toastify";
 import Loading from "../Loading/Loading";
 import { getHeader } from "../Redux/Slice/HeaderSlice";
 import {
@@ -22,7 +23,7 @@ const SubHeader: FC = () => {
   }
 
   if (error) {
-    console.log(error);
+    toast.error(error);
   }
   return (
     <div className="flex justify-between shadow-md">

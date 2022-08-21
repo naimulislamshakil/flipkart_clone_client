@@ -1,6 +1,8 @@
 import { useEffect } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import { toast } from "react-toastify";
+import Loading from "../Loading/Loading";
 import { getBanner } from "../Redux/Slice/BannerSlice";
 import {
   useAppDispatch,
@@ -36,13 +38,20 @@ const Banner = () => {
   useEffect(() => {
     dispatch(getBanner());
   }, [dispatch]);
+
+  if (isLoading) {
+    return <Loading />;
+  }
+
+  if (error) {
+    toast.error(error);
+  }
   return (
-    <div>
+    <div className="m-2">
       <Carousel responsive={responsive}>
-        <div>Item 1</div>
-        <div>Item 2</div>
-        <div>Item 3</div>
-        <div>Item 4</div>
+        {banners.map((banner) => (
+          <img key={banner._id} src={banner.url} alt="Banner"></img>
+        ))}
       </Carousel>
       ;
     </div>
