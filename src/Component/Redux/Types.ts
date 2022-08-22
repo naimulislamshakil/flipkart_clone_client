@@ -16,6 +16,6 @@ export interface BannerType {
 
 export interface ProductType {
   products: Product[];
-  isLoading: false;
+  isLoading: boolean;
   error: string | null;
 }

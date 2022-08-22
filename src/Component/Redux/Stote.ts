@@ -1,11 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
 import BannerSlice from "./Slice/BannerSlice";
 import headerSlice from "./Slice/HeaderSlice";
+import productSlice from "./Slice/ProductSlice";
 
 const store = configureStore({
   reducer: {
     headers: headerSlice,
     banners: BannerSlice,
+    products: productSlice,
   },
 });
 
