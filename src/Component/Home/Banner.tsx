@@ -48,7 +48,20 @@ const Banner = () => {
   }
   return (
     <div className="">
-      <Carousel responsive={responsive}>
+      <Carousel
+        swipeable={false}
+        draggable={false}
+        showDots={true}
+        infinite={true}
+        autoPlay={true}
+        autoPlaySpeed={4000}
+        containerClass="carousel-container"
+        keyBoardControl={true}
+        slidesToSlide={1}
+        dotListClass="custom-dot-list-style"
+        itemClass="carousel-item-padding-40-px"
+        responsive={responsive}
+      >
         {banners.map((banner) => (
           <img
             className="h-[250px]"
@@ -58,7 +71,6 @@ const Banner = () => {
           ></img>
         ))}
       </Carousel>
-      ;
     </div>
   );
 };
