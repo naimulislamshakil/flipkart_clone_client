@@ -1,4 +1,5 @@
 type Product = {
+  _id: string;
   url: string;
   detailUrl: string;
   title: {
