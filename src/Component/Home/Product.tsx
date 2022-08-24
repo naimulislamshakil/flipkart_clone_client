@@ -6,6 +6,7 @@ import {
   useAppDispatch,
   useAppSelector,
 } from "../Redux/TypeHook/HeaderTypeHook";
+import ProductCarousel from "./ProductCarousel";
 
 const Product = () => {
   const dispatch = useAppDispatch();
@@ -28,7 +29,7 @@ const Product = () => {
   return (
     <div className="card shadow-lg">
       {products.map((product) => (
-        <Product key={product._id} product={product}></Product>
+        <ProductCarousel key={product._id} product={product}></ProductCarousel>
       ))}
     </div>
   );

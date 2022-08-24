@@ -1,6 +1,13 @@
 import React from "react";
+import Product from "../Redux/models/productModel";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 
-const ProductCarousel = () => {
+interface Props {
+  product: Product;
+}
+
+const ProductCarousel = ({ product }: Props) => {
   return (
     <div>
       <h2>hssjhn</h2>
