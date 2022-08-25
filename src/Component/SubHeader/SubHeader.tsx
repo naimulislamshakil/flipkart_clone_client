@@ -1,5 +1,5 @@
 import { FC, useEffect } from "react";
-import { toast } from "react-toastify";
+import errorHandeler from "../CoustomeHooks/errorHook";
 import Loading from "../Loading/Loading";
 import { getHeader } from "../Redux/Slice/HeaderSlice";
 import {
@@ -22,7 +22,7 @@ const SubHeader: FC = () => {
   }
 
   if (error) {
-    toast.error(error);
+    errorHandeler(error);
   }
 
   const navbar = (

@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import { toast } from "react-toastify";
+import errorHandeler from "../CoustomeHooks/errorHook";
 import Loading from "../Loading/Loading";
 import { getBanner } from "../Redux/Slice/BannerSlice";
 import {
@@ -44,7 +44,7 @@ const Banner = () => {
   }
 
   if (error) {
-    toast.error(error);
+    errorHandeler(error);
   }
   return (
     <div className="">

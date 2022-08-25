@@ -1,5 +1,6 @@
 import { useEffect } from "react";
-import { toast } from "react-toastify";
+import errorHandeler from "../CoustomeHooks/errorHook";
+
 import Loading from "../Loading/Loading";
 import { getProduct } from "../Redux/Slice/ProductSlice";
 import {
@@ -24,13 +25,12 @@ const Product = () => {
   }
 
   if (error) {
-    toast.error(error);
+    errorHandeler(error);
   }
+
   return (
-    <div className="card shadow-lg">
-      {products.map((product) => (
-        <ProductCarousel key={product._id} product={product}></ProductCarousel>
-      ))}
+    <div className="mt-2">
+      <ProductCarousel products={products} />
     </div>
   );
 };
