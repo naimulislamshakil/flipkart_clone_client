@@ -30,9 +30,21 @@ const responsive = {
 const ProductCarousel = ({ products }: Props) => {
   return (
     <div>
-      <Carousel responsive={responsive}>
+      <Carousel
+        swipeable={false}
+        draggable={false}
+        infinite={true}
+        autoPlay={true}
+        autoPlaySpeed={4000}
+        containerClass="carousel-container"
+        keyBoardControl={true}
+        slidesToSlide={1}
+        dotListClass="custom-dot-list-style"
+        itemClass="carousel-item-padding-40-px"
+        responsive={responsive}
+      >
         {products.map((product) => (
-          <div className="card w-96 bg-base-100 shadow-xl">
+          <div className="card w-[350px] bg-base-100 shadow-xl">
             <figure>
               <img src="https://placeimg.com/400/225/arch" alt="Shoes" />
             </figure>

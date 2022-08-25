@@ -30,6 +30,7 @@ const Product = () => {
 
   return (
     <div className="mt-2">
+      <div></div>
       <ProductCarousel products={products} />
     </div>
   );
