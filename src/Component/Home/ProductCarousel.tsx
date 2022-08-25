@@ -44,9 +44,9 @@ const ProductCarousel = ({ products }: Props) => {
         responsive={responsive}
       >
         {products.map((product) => (
-          <div className="card w-[350px] bg-base-100 shadow-xl">
+          <div className="card w-[350px] h-[400px] bg-base-100 shadow-xl">
             <figure>
-              <img src="https://placeimg.com/400/225/arch" alt="Shoes" />
+              <img className="w-[150px]" src={product.url} alt="Shoes" />
             </figure>
             <div className="card-body">
               <h2 className="card-title">Shoes!</h2>
