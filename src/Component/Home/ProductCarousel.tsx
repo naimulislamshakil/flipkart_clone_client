@@ -49,10 +49,19 @@ const ProductCarousel = ({ products }: Props) => {
               <img className="w-[150px]" src={product.url} alt="Shoes" />
             </figure>
             <div className="card-body">
-              <h2 className="card-title">Shoes!</h2>
-              <p>If a dog chews shoes whose shoes does he choose?</p>
-              <div className="card-actions justify-end">
-                <button className="btn btn-primary">Buy Now</button>
+              <h2 className="card-title">{product.title.shortTitle}</h2>
+              <p>
+                {product.description ? (
+                  product.description.slice(0, 100)
+                ) : (
+                  <h2>N/A</h2>
+                )}
+              </p>
+              <div className="card-actions justify-between">
+                <button className="btn btn-primary">Learn More</button>
+                <button className="btn text-white bg-amber-600">
+                  Add To Cart
+                </button>
               </div>
             </div>
           </div>
