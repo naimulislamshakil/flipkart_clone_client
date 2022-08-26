@@ -5,11 +5,13 @@ import Home from "./Component/Home/Home";
 import SubHeader from "./Component/SubHeader/SubHeader";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import LoginModel from "./Component/Header/LoginModel";
 
 function App() {
   return (
     <div className="container mx-auto">
       <Header></Header>
+      <LoginModel />
       <SubHeader />
       <Routes>
         <Route path="/" element={<Home />} />

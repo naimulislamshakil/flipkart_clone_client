@@ -16,9 +16,12 @@ const Header = () => {
         </div>
       </li>
       <li>
-        <button className="btn bg-white text-black hover:bg-white hover:text-black h-3 ml-[15px] ">
-          LogIn
-        </button>
+        <label
+          htmlFor="my-modal-1"
+          className="btn bg-white text-black hover:bg-white hover:text-black h-3 ml-[15px] modal-button"
+        >
+          Login
+        </label>
       </li>
       <li>
         <Link className="font-bold lg:text-white text-black h-14 ml-4" to="/">
