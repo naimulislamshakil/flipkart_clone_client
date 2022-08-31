@@ -19,3 +19,4 @@ export interface ProductType {
   isLoading: boolean;
   error: string | null;
 }
+

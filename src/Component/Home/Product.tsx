@@ -15,7 +15,6 @@ const Product = () => {
   const { products, isLoading, error } = useAppSelector(
     (state) => state.products
   );
-  console.log(products);
 
   useEffect(() => {
     dispatch(getProduct());

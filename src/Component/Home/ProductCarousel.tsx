@@ -44,19 +44,19 @@ const ProductCarousel = ({ products }: Props) => {
         responsive={responsive}
       >
         {products.map((product) => (
-          <div className="card w-[350px] h-[400px] bg-base-100 shadow-xl">
+          <div key={product._id} className="card w-[350px] h-[400px] bg-base-100 shadow-xl">
             <figure>
               <img className="w-[150px]" src={product.url} alt="Shoes" />
             </figure>
             <div className="card-body">
               <h2 className="card-title">{product.title.shortTitle}</h2>
-              <p>
+              <div>
                 {product.description ? (
-                  product.description.slice(0, 100)
+                  <p>{ product.description.slice(0, 100)}</p>
                 ) : (
-                  <h2>N/A</h2>
+                  <p>N/A</p>
                 )}
-              </p>
+              </div>
               <div className="card-actions justify-between">
                 <button className="btn btn-primary">Learn More</button>
                 <button className="btn text-white bg-amber-600">
