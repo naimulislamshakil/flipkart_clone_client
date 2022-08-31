@@ -13,6 +13,7 @@ const Header = () => {
               className="input input-bordered"
             />
           </div>
+          {/* div */}
         </div>
       </li>
       <li>
