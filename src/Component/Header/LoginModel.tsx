@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { FormEvent, useState } from "react";
 
 
  
@@ -6,7 +6,18 @@ import React, { useState } from "react";
 
 const LoginModel = () => {
 
- const [account, setAccount]=useState<boolean>(false)
+  const [account, setAccount] = useState<boolean>(false)
+  // const [email, setEmail] = useState<string>("");
+  // const [password, setPassword] = useState<string>("");
+  // const [retypePassword, setRetypePassword] = useState<string>("");
+  // const [firstName, setFirstName] = useState<string>("");
+  // const [lastName, setLastName] = useState<string>("");
+
+  const login = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const email=event.target.email.value
+  }
+
   return (
     <div>
       {
@@ -27,7 +38,7 @@ const LoginModel = () => {
               <h1 className="text-3xl font-semibold text-center text-purple-700">
                 Login
               </h1>
-              <form className="mt-6">
+              <form onSubmit={login} className="mt-6">
                 <div>
                   <label
                     htmlFor="email"
@@ -36,6 +47,7 @@ const LoginModel = () => {
                     Email
                   </label>
                         <input
+                          name="email"
                           required
                     type="email"
                     className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
@@ -50,6 +62,7 @@ const LoginModel = () => {
                       Password
                     </label>
                           <input
+                            name="password"
                             required
                       type="password"
                       className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
@@ -59,9 +72,8 @@ const LoginModel = () => {
                     Forget Password?
                   </a>
                   <div className="mt-6">
-                    <button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-purple-700 rounded-md hover:bg-purple-600 focus:outline-none focus:bg-purple-600">
-                      Login
-                    </button>
+                    <input type="submit" value="Login" className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-purple-700 rounded-md hover:bg-purple-600 focus:outline-none focus:bg-purple-600"/>
+                     
                   </div>
                 </div>
               </form>
@@ -172,9 +184,8 @@ const LoginModel = () => {
                   
                   
                   <div className="mt-6">
-                    <button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-purple-700 rounded-md hover:bg-purple-600 focus:outline-none focus:bg-purple-600">
-                      Sing Up
-                    </button>
+                    <input type="submit" value="SingUp" className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-purple-700 rounded-md hover:bg-purple-600 focus:outline-none focus:bg-purple-600"/>
+                     
                   </div>
                 </div>
               </form>
