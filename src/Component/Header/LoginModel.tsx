@@ -1,4 +1,9 @@
 import React, { FormEvent, useState } from "react";
+import { toast } from "react-toastify";
+import errorHandeler from "../CoustomeHooks/errorHook";
+import Loading from "../Loading/Loading";
+import { postCreateUser } from "../Redux/Slice/CreateUserSlice";
+import { useAppDispatch, useAppSelector } from "../Redux/TypeHook/HeaderTypeHook";
 
 
  
@@ -6,17 +11,59 @@ import React, { FormEvent, useState } from "react";
 
 const LoginModel = () => {
 
-  const [account, setAccount] = useState<boolean>(false)
-  // const [email, setEmail] = useState<string>("");
-  // const [password, setPassword] = useState<string>("");
-  // const [retypePassword, setRetypePassword] = useState<string>("");
-  // const [firstName, setFirstName] = useState<string>("");
-  // const [lastName, setLastName] = useState<string>("");
+  const dispatch = useAppDispatch()
+  
+  const {message, isLoading, error}=useAppSelector((state)=>state.users)
+  
 
+  const [account, setAccount] = useState<boolean>(false)
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const [retypePassword, setRetypePassword] = useState<string>("");
+  const [firstName, setFirstName] = useState<string>("");
+  const [lastName, setLastName] = useState<string>("");
+
+// It work when use click login button
   const login = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const email=event.target.email.value
+  console.log(email, password);
+
   }
+
+  // It work when use click singup button
+  const singup = (event:FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    // check password and retype password is same
+    if (password ===retypePassword) {
+      // create a user
+
+      const user = {
+        firstName,
+        lastName,
+        email,
+        password
+      }
+// dispatch function
+      dispatch(postCreateUser({user}))
+
+    }
+    if (message?.acknowledged) {
+     toast("User add successfully.")
+   }
+    
+  }
+
+
+  
+ if (isLoading) {
+    return <Loading />;
+  }
+
+  if (error) {
+    errorHandeler(error);
+  }
+
 
   return (
     <div>
@@ -48,6 +95,7 @@ const LoginModel = () => {
                   </label>
                         <input
                           name="email"
+                          onChange={(e)=>setEmail(e.target.value)}
                           required
                     type="email"
                     className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
@@ -63,6 +111,7 @@ const LoginModel = () => {
                     </label>
                           <input
                             name="password"
+                            onChange={(e)=>setPassword(e.target.value)}
                             required
                       type="password"
                       className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
@@ -109,7 +158,7 @@ const LoginModel = () => {
               <h1 className="text-3xl font-semibold text-center text-purple-700">
                 Sing Up
               </h1>
-                    <form className="mt-6">
+                    <form onSubmit={singup} className="mt-6">
 
                       <div>
                   <label
@@ -120,6 +169,7 @@ const LoginModel = () => {
                   </label>
                         <input
                           required
+                          onChange={(e)=>setFirstName(e.target.value)}
                     type="text"
                     className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
                   />
@@ -134,6 +184,7 @@ const LoginModel = () => {
                   </label>
                         <input
                           required
+                          onChange={(e)=>setLastName(e.target.value)}
                     type="text"
                     className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
                   />
@@ -149,6 +200,7 @@ const LoginModel = () => {
                   </label>
                         <input
                           required
+                          onChange={(e)=>setEmail(e.target.value)}
                     type="email"
                     className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
                   />
@@ -162,7 +214,8 @@ const LoginModel = () => {
                       Password
                     </label>
                           <input
-                            required
+                          required
+                          onChange={(e)=>setPassword(e.target.value)}
                       type="password"
                       className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
                     />
@@ -177,6 +230,7 @@ const LoginModel = () => {
                     </label>
                           <input
                             required
+                            onChange={(e)=>setRetypePassword(e.target.value)}
                       type="password"
                       className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
                     />

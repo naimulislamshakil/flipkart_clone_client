@@ -1,5 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import BannerSlice from "./Slice/BannerSlice";
+import  createUserSlice  from "./Slice/CreateUserSlice";
 import headerSlice from "./Slice/HeaderSlice";
 import productSlice from "./Slice/ProductSlice";
 
@@ -8,6 +9,7 @@ const store = configureStore({
     headers: headerSlice,
     banners: BannerSlice,
     products: productSlice,
+    users:createUserSlice,
   },
 });
 

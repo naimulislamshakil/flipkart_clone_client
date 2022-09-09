@@ -34,13 +34,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
+
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
+ 
   "browserslist": {
     "production": [
       ">0.2%",
@@ -54,7 +50,7 @@
     ]
   },
   "devDependencies": {
-    "@types/redux-logger": "^3.0.9",
-    "tailwindcss": "^3.1.8"
+    "@types/redux-logger": "^3.0.9"
+    
   }
 }
