@@ -50,6 +50,9 @@ const LoginModel = () => {
     }
     if (message?.acknowledged) {
      toast("User add successfully.")
+    } else {
+      toast(message?.message)
+      console.log("hi")
    }
     
   }
